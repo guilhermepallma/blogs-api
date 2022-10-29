@@ -1,5 +1,5 @@
 const { validateLogin } = require('../schemas/validade.values');
-const { jwt } = require('../../utils');
+const { jwt } = require('../../utils/jwt.utils');
 const { User } = require('../../models');
 
 const validateUser = async ({ email, password }) => {

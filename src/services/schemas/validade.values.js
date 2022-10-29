@@ -1,14 +1,22 @@
-const { loginSchema } = require('./validate.schemas');
+const { loginSchema, userSchema } = require('./validate.schemas');
 
-const validateLogin = async (user) => {
-  const { error, value } = await loginSchema.validate(user);
-  console.log(error);
+const validateLogin = (user) => {
+  const { error, value } = loginSchema.validate(user);
   if (error) {
     return { type: 400, message: { message: 'Some required fields are missing' } };
   }
   return { type: null, message: value };
 };
 
+const validateUser = (newUser) => {
+  const { error, value } = userSchema.validate(newUser);
+  if (error) {
+    return { type: 400, message: { message: error.details[0].message } };
+  }
+  return { type: null, message: value };
+};
+
 module.exports = {
   validateLogin,
+  validateUser,
 };

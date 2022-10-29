@@ -1,7 +1,7 @@
-const userService = require('./user.service');
 const userValidate = require('./schemas/validade.values');
+const userService = require('./user.service');
 
 module.exports = {
-  userService,
   userValidate,
+  userService,
 };
