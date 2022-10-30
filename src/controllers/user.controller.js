@@ -1,4 +1,4 @@
-const { validadeNewUser, getUser } = require('../services/user.service');
+const { validadeNewUser, getUser, getUserById } = require('../services/user.service');
 
 const createNewUser = async (request, response) => {
   const { displayName, email, password, image } = request.body;
@@ -15,7 +15,15 @@ const getAllUser = async (_request, response) => {
   return response.status(type).json(message);
 };
 
+const getById = async (request, response) => {
+  const { id } = request.params;
+  const { type, message } = await getUserById(id);
+
+  return response.status(type).json(message);
+};
+
 module.exports = {
   createNewUser,
   getAllUser,
+  getById,
 };
