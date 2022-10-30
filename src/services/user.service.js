@@ -22,4 +22,12 @@ const validadeNewUser = async ({ displayName, email, password, image }) => {
   return { type: 201, message: { token } };
 };
 
-module.exports = validadeNewUser;
+const getUser = async () => {
+  const user = await User.findAll({ attributes: { exclude: ['password'] } });
+  return { type: 200, message: user };
+};
+
+module.exports = {
+  validadeNewUser,
+  getUser,
+};

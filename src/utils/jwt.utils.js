@@ -6,16 +6,15 @@ const createToken = (data) => {
     expiresIn: '1d',
     algorithm: 'HS256',
   });
-  
   return token;
 };
 
 const verifyToken = (token) => {
   try {
     const { data } = jwt.verify(token, process.env.JWT_SECRET);
-    return { data };
+    return { type: 200, message: data };
   } catch (error) {
-    return { type: 401, message: { message: 'Token not found' } };
+    return { type: 401, message: { message: 'Expired or invalid token' } };
   }
 };
 

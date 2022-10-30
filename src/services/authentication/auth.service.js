@@ -21,13 +21,4 @@ const validateUser = async ({ email, password }) => {
   return { type: 200, message: { token } };
 };
 
-const validateToken = (token) => {
-  if (!token) {
-    return { message: { message: 'Token not found' } };
-    }
-    const user = jwt.verifyToken(token);
-    
-    return user;
-};  
-
-module.exports = { validateUser, validateToken };
+module.exports = { validateUser };

@@ -1,10 +1,20 @@
-const authService = require('../services/authentication/auth.service');
+const { jwt } = require('../utils');
 
-const routerValidateToken = async (request, _response, next) => {
+const routerValidateToken = async (request, response, next) => {
   const { authorization } = request.headers;
-  authService.validateToken(authorization);
 
+  if (!authorization) {
+    return response.status(401).json({ message: 'Token not found' }); 
+  }
+
+  const verifySing = jwt.verifyToken(authorization, process.env.JWT_SECRET);
+
+  if (verifySing.type === 401) {
+    return response.status(verifySing.type).json(verifySing.message);
+  }
   next();
 };
 
-module.exports = routerValidateToken;
+module.exports = {
+  routerValidateToken,
+};
