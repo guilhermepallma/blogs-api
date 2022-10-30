@@ -9,8 +9,7 @@ const CategoryModel = (sequelize, DataTypes) => {
   }, 
   {
     timestamps: false,
-    tableName: 'users',
-    underscored: true,
+    tableName: 'categories',
   });
   return Category;
 };  

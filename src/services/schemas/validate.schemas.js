@@ -12,7 +12,12 @@ const userSchema = Joi.object({
   image: Joi.string(),
 });
 
+const categorieSchema = Joi.object({
+  name: Joi.string().required(),
+});
+
 module.exports = {
   loginSchema,
   userSchema,
+  categorieSchema,
 };

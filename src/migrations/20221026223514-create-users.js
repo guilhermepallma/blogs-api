@@ -10,7 +10,7 @@ module.exports = {
         autoIncrement: true
       },
       displayName: {
-        allowNull: false,
+        allowNull: true,
         field: 'display_name',
         type: Sequelize.STRING
       },
