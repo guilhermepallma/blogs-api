@@ -1,11 +1,19 @@
-const { getAllPost } = require('../services/post.service');
+const { getAll, getById } = require('../services/post.service');
 
-const getPost = async (request, response) => {
-  const { type, message } = await getAllPost();
+const getAllPost = async (_request, response) => {
+  const { type, message } = await getAll();
+  
+  return response.status(type).json(message);
+};
+
+const getPostById = async (request, response) => {
+  const { id } = request.params;
+  const { type, message } = await getById(id);
   
   return response.status(type).json(message);
 };
 
 module.exports = {
-  getPost,
+  getAllPost,
+  getPostById,
 };
