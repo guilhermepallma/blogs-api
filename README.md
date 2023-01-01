@@ -75,12 +75,14 @@ Navegue até a raíz do projeto.
      
      mysql -u root -p
      
-  Execute o comandos para a criação do banco de dados, com o sequelize dentro do container <strong>blogs_api</strong>. 
+  Execute o comando para a criação do banco de dados com o sequelize no terminal dentro do container <strong>blogs_api</strong>. 
   
     npm prestart
   
-  Para iniciarmos o servidor da aplicação execute o comando abaixo no terminal do container <strong>blogs_api</strong>.
+  Para iniciarmos o servidor da aplicação execute o comando abaixo no terminal dentro do container <strong>blogs_api</strong>.
      
     npm run debug
   
   </details>
+
+Desenvolvido por [Guilherme Palma](www.linkedin.com/in/guilhermepallma) © 2022.
