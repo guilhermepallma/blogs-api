@@ -55,7 +55,7 @@ Navegue até a raíz do projeto.
  <details>
   <summary>Docker</summary>
   
-  Para montarmos os containers com a API e o Banco de Dados.
+  Para montarmos os containers com a API e o Banco de Dados, execute o comando abaixo.
   
     docker-compose up -d
     
